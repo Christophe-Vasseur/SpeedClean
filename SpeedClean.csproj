@@ -3,8 +3,41 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
+	<PublishSingleFile>true</PublishSingleFile>  
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>speedclean.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Analyse-32.png" />
+    <None Remove="Eponge-66.png" />
+    <None Remove="Github-16.png" />
+    <None Remove="Internet-16.png" />
+    <None Remove="Nettoyer-32.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="speedclean.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Analyse-32.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Eponge-66.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Github-16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Internet-16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Nettoyer-32.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
 
 </Project>

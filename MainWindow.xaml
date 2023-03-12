@@ -5,20 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SpeedClean"
         mc:Ignorable="d"
-        Title="SpeedClean v1.0" Height="233" Width="453" Background="#FFF6F6F6">
-    <Grid Margin="0,10,0,8">
-        <!-- Bandeau haut -->
-        <Rectangle HorizontalAlignment="Center" Height="33" Stroke="Black" VerticalAlignment="Top" Width="452" Fill="White" Margin="0,-10,0,0"/>
-        <Label Content="Effacer d' 1 clic vos fichiers temporaires" HorizontalAlignment="Center" VerticalAlignment="Top" Width="298" FontFamily="Bahnschrift" RenderTransformOrigin="0.5,0.5" Foreground="#FF333333" Margin="0,-8,0,0" FontSize="16" FontWeight="Bold"/>
-        <!-- Corps -->
-        <Rectangle HorizontalAlignment="Center" Height="60" Margin="0,34,0,0" Stroke="Black" VerticalAlignment="Top" Width="425" Fill="#FFF6F6F6"/>
-        <Button x:Name="Btn_Analyser" Content="ANALYSER" HorizontalAlignment="Left" Margin="24,39,0,0" VerticalAlignment="Top" Height="48" Width="157" Click="Button_Click" FontFamily="Bahnschrift" BorderThickness="2,2,2,2" Background="#FF1E856F" BorderBrush="#FFD0D0D0" Foreground="White" RenderTransformOrigin="0.462,0.719" FontSize="14"/>
-        <Button x:Name="Btn_Nettoyer" Content="NETTOYER" HorizontalAlignment="Left" Margin="260,40,0,0" VerticalAlignment="Top" Height="48" Width="157" Click="Button_Click" FontFamily="Bahnschrift" BorderThickness="2,2,2,2" Background="#FF1E856F" BorderBrush="#FFD0D0D0" Foreground="White" RenderTransformOrigin="0.462,0.719" FontSize="14"/>
-        <Rectangle HorizontalAlignment="Center" Height="59" Margin="0,103,0,0" Stroke="Black" VerticalAlignment="Top" Width="425"/>
+        Title="SpeedClean v1.0" Height="214" Width="453" Background="#FFF6F6F6" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Eponge-66.png">
+    <Grid Height="176" VerticalAlignment="Top" Margin="0,4,0,0">
 
+        <!-- Bandeau haut -->
+        <Label x:Name="Label_Bandeau" Content="Effacer en un clic vos fichiers temporaires" HorizontalAlignment="Center" VerticalAlignment="Top" Width="315" FontFamily="Bahnschrift" RenderTransformOrigin="0.5,0.5" Foreground="#FF333333" FontSize="16" FontWeight="Bold" Height="26" Margin="0,-6,0,0"/>
+
+        <!-- Corps -->
+        <Rectangle HorizontalAlignment="Left" Height="118" Margin="14,25,0,0" Stroke="Black" VerticalAlignment="Top" Width="411" Fill="#FFF6F6F6"/>
+        <Button x:Name="Btn_Analyser" HorizontalAlignment="left" Margin="22,32,0,0" VerticalAlignment="Top" Height="48" Width="157" Click="Button_Analyser" FontFamily="Bahnschrift" BorderThickness="2,2,2,2" Background="#FF1E856F" BorderBrush="#FFD0D0D0" Foreground="White" RenderTransformOrigin="0.502,0.723" FontSize="14">
+            <StackPanel Orientation="Horizontal">
+                <Image Height="32" Width="32" Source="/Analyse-32.png"/>
+                <Label Content="ANALYSER" FontFamily="Bahnschrift" Foreground="White" BorderThickness="0,4,0,0"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="Btn_Nettoyer" HorizontalAlignment="Left" Margin="22,90,0,0" VerticalAlignment="Top" Height="48" Width="157" Click="Button_Nettoyer" FontFamily="Bahnschrift" BorderThickness="2,2,2,2" Background="#FF1E856F" BorderBrush="#FFD0D0D0" Foreground="White" RenderTransformOrigin="0.601,0.721" FontSize="14" IsEnabled="False">
+            <StackPanel Orientation="Horizontal">
+                <Image Height="32" Width="32" Source="/Nettoyer-32.png"/>
+                <Label Content="NETTOYER" FontFamily="Bahnschrift" Foreground="White" BorderThickness="0,4,0,0"/>
+            </StackPanel>
+        </Button>
+        <Label x:Name="label_Infos" Content="Analyse non effectuée" HorizontalAlignment="Left" Margin="226,44,0,0" VerticalAlignment="Top" Width="173" RenderTransformOrigin="0.538,0.537"/>
+        <CheckBox x:Name="Checkbox_Presse_Papier" Content="Vider le Presse-Papier" HorizontalAlignment="Left" Margin="226,106,0,0" VerticalAlignment="Top" Width="158" IsChecked="True"/>
 
         <!-- Footer -->
-        <Rectangle HorizontalAlignment="Center" Margin="0,186,0,-7" Stroke="Black" Width="452">
+        <Rectangle HorizontalAlignment="Center" Margin="0,147,0,-7" Stroke="Black" Width="452">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF39A78D" Offset="1"/>
@@ -26,6 +37,16 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Label Content="Copyright 2023 - Chris" HorizontalAlignment="Left" Margin="0,187,0,0" VerticalAlignment="Top" Width="110" Height="15" FontSize="6" FontFamily="Bahnschrift Light"/>
+        <Label Content="Copyright 2023 - Ch. Vasseur" HorizontalAlignment="Left" Margin="14,150,0,0" VerticalAlignment="Top" Width="175" Height="26" FontSize="12" FontFamily="Bahnschrift Light"/>
+
+        <!-- Lien Github -->
+        <Button Content="" HorizontalAlignment="Left" Margin="390,152,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}" Width="16" Height="16" ToolTip="Vers Dépôt Gihub" Click="Button_Goto_Github"/>
+        <Image x:Name="lienGithub" HorizontalAlignment="Left" Height="16" Margin="390,152,0,0" VerticalAlignment="Top" Width="16" Source="/Github-16.png" IsHitTestVisible="False"/>
+
+        <!-- Lien Inernet -->
+        <Button Content="" HorizontalAlignment="Left" Margin="416,152,0,0" VerticalAlignment="Top" BorderBrush="{x:Null}" Foreground="{x:Null}" Background="{x:Null}" Width="16" Height="16" ToolTip="Vers Site Internet" Click="Button_Goto_Site"/>
+        <Image x:Name="siteInternet" HorizontalAlignment="Left" Height="16" Margin="416,152,0,0" VerticalAlignment="Top" Width="16" Source="/Internet-16.png" IsHitTestVisible="False"/>
+
+
     </Grid>
 </Window>
